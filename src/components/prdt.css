@@ -84,6 +84,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 19.5px;
+    cursor: pointer;
 }
 
 .view {
@@ -96,5 +97,6 @@
     color: white;
     font-weight: 500;
     font-size: 16px;
+    cursor: pointer;
     line-height: 19.5px;
 }

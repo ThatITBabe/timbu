@@ -29,7 +29,7 @@ const ProductCard = ({ product, addToCart }) => {
                             </svg>
                         </div>
                     </div>
-                    <div className="price">$80</div>
+                    <div className="price">$ {product.price}</div>
                     <div className="btnz">
                         <div onClick={() => addToCart(product)} className='add'>Add to Cart</div>
                         <div className='view'>View</div>
