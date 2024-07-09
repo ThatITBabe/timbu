@@ -1,0 +1,53 @@
+* {
+    font-family: "Montserrat", serif;
+}
+
+.cart {
+    padding-block: 50px;
+}
+
+.heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29.26px;
+    color: #0B1215;
+}
+
+.innpuut{
+    width: 800px;
+    height: 40px;
+}
+
+.inputG {
+    border-radius: 5px;
+    border: 1px solid #333333;
+    /* #333333 */
+}
+
+.form-control {
+    outline: none;
+}
+
+.input-text {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(79, 79, 79, 0.85);
+}
+
+.discountBtn{
+    background-color: #254D4D;
+    padding: 10px 24px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.checkout{
+    background-color: #254D4D;
+    padding: 10px 24px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+}

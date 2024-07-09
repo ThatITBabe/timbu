@@ -17,6 +17,7 @@ import prdt9 from './images/prdt9.png';
 import prdt10 from './images/prdt10.png';
 import prdt11 from './images/prdt11.png';
 import prdt12 from './images/prdt12.png';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -124,6 +125,7 @@ const App = () => {
           <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} />} />
           <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} handleCheckout={handleCheckout} />} />
         </Routes>
+        {/* <Footer/> */}
       </div>
     </Router>
   );
