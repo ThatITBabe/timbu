@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Route, Routes, useLocation } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
-import Navbar2 from './components/Navbar2';
+// import { BrowserRouter as Route, Routes, useLocation } from 'react-router-dom';
+// import HomePage from './pages/HomePage';
+// import CartPage from './pages/CartPage';
+// import Navbar2 from './components/Navbar2';
 import prdt1 from './images/prdt1.png';
 import prdt2 from './images/prdt2.png';
 import prdt3 from './images/prdt3.png';
@@ -16,21 +16,21 @@ import prdt9 from './images/prdt9.png';
 import prdt10 from './images/prdt10.png';
 import prdt11 from './images/prdt11.png';
 import prdt12 from './images/prdt12.png';
-import Footer from './components/Footer';
-import CheckOutPage from './pages/CheckOutPage';
-import Successful from './pages/Successful';
+// import Footer from './components/Footer';
+// import CheckOutPage from './pages/CheckOutPage';
+// import Successful from './pages/Successful';
+import AppWrapper from './pages/AppWrapper';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 const App = () => {
-  const location = useLocation();
-  const hideNavbarAndFooter = location.pathname === '/payment';
 
   const [products] = useState([
     {
       id: 1,
       image: prdt1,
       title: 'Office  Chair',
-      description: 'Classy and comfortable ',
+      description: 'Classy and comfortable',
       price: 80,
       qty: 1,
 
@@ -39,46 +39,46 @@ const App = () => {
       id: 2,
       image: prdt2,
       title: 'Office desk and chair set',
-      description: 'Classy and comfortable ',
-      price: 80,
+      description: 'Futuristic',
+      price: 250,
       qty: 1,
     },
     {
       id: 3,
       image: prdt3,
-      title: 'Blue Office  Chair',
+      title: 'Office  chair',
       description: 'Classy and comfortable ',
-      price: 80,
+      price: 90,
       qty: 1,
     },
     {
       id: 4,
       image: prdt4,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
+      title: 'Leather office chair',
+      description: 'Classy and comfortable',
       price: 80,
       qty: 1,
     },
     {
       id: 5,
       image: prdt5,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Office Chair',
+      description: 'Modern and Unique',
+      price: 90,
       qty: 1,
     },
     {
       id: 6,
       image: prdt6,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Coffee table and chairs',
+      description: 'Classy and comfortable',
+      price: 120,
       qty: 1,
     },
     {
       id: 7,
       image: prdt7,
-      title: 'Blue Office  Chair',
+      title: 'Blue office  chair',
       description: 'Classy and comfortable ',
       price: 80,
       qty: 1,
@@ -86,41 +86,41 @@ const App = () => {
     {
       id: 8,
       image: prdt8,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Desk and chairs set',
+      description: 'Unique and modern',
+      price: 120,
       qty: 1,
     },
     {
       id: 9,
       image: prdt9,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Desk chairs set',
+      description: 'Futuristic vibes ',
+      price: 240,
       qty: 1,
     },
     {
       id: 10,
       image: prdt10,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Office non swivel chair',
+      description: 'Easy to move around',
+      price: 100,
       qty: 1,
     },
     {
       id: 11,
       image: prdt11,
-      title: 'Blue Office  Chair',
-      description: 'Classy and comfortable ',
-      price: 80,
+      title: 'Cube cusion set',
+      description: 'Modern and comfy',
+      price: 140,
       qty: 1,
     },
     {
       id: 12,
       image: prdt12,
-      title: 'Blue Office  Chair',
+      title: 'Office couch set',
       description: 'Classy and comfortable ',
-      price: 80,
+      price: 200,
       qty: 1,
     }
   ]);
@@ -136,6 +136,10 @@ const App = () => {
 
   const addToCart = (product) => {
     setCartItems([...cartItems, { ...product, quantity: 1 }]);
+  };
+
+  const openImage = (product) => {
+    window.open(product.image, '_blank');
   };
 
   const removeFromCart = (product) => {
@@ -165,28 +169,23 @@ const App = () => {
     setCartItems([]);
     localStorage.removeItem('cartItems');
     alert('Order placed successfully!');
+    console.log('Cart length after checkout:', cartItems.length);
   };
 
-  return (
-    <div className="App">
-      {/* <Navbar2 cartItems={cartItems} /> */}
-      {!hideNavbarAndFooter && <Navbar2 cartItems={cartItems} />}
-      <Routes>
-        <Route path="/" element={<HomePage products={products} addToCart={addToCart} />} />
-        <Route path="/cart" element={
-          <CartPage
-            cartItems={cartItems}
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-            removeFromCart={removeFromCart}
-          />
-        } />
-        <Route path="/checkout" element={<CheckOutPage cartItems={cartItems} handleCheckout={handleCheckout} />} />
-        <Route path='/payment' element={<Successful />} />
-      </Routes>
-      {!hideNavbarAndFooter && <Footer />}
-    </div>
 
+  return (
+    <Router>
+      <AppWrapper
+        cartItems={cartItems}
+        products={products}
+        addToCart={addToCart}
+        openImage={openImage}
+        increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
+        removeFromCart={removeFromCart}
+        handleCheckout={handleCheckout}
+      />
+    </Router>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import './prdt.css'
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, addToCart, openImage }) => {
     return (
         <div className="product-card">
             <div className="cardzz">
@@ -32,7 +32,7 @@ const ProductCard = ({ product, addToCart }) => {
                     <div className="price">$ {product.price}</div>
                     <div className="btnzrr">
                         <div onClick={() => addToCart(product)} className='add'>Add to Cart</div>
-                        <div className='view'>View</div>
+                        <div onClick={() => openImage(product)} className='view'>View</div>
                     </div>
                 </div>
             </div>

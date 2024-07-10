@@ -131,7 +131,7 @@ const Cart = ({ cartItems = [], increaseQuantity, decreaseQuantity, removeFromCa
                                 aria-label="Please enter promo code"
                                 aria-describedby="basic-addon2"
                             />
-                            <InputGroup.Text className='discountBtn' id="basic-addon2">Apply Discount</InputGroup.Text>
+                            <InputGroup.Text className='discountBtnt' id="basic-addon2">Apply Discount</InputGroup.Text>
                         </InputGroup>
                         <div className='w-25 d-flex align-items-center justify-content-space-between gap-1 btnzz'>
                             <div className="checkout" onClick={handleClick3}>

@@ -9,7 +9,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from '../components/ExampleCarouselImage';
 import FurnitureCategoryButtons from '../components/OfficeFurnitureNav';
 
-const HomePage = ({ products, addToCart }) => {
+const HomePage = ({ products, addToCart, openImage }) => {
     return (
         <div style={{marginTop: '-5px'}}>
             <div style={{paddingBlock: '100px',
@@ -67,7 +67,7 @@ const HomePage = ({ products, addToCart }) => {
             </div>
 
             <div>
-                <ProductListing products={products} addToCart={addToCart} />
+                <ProductListing products={products} addToCart={addToCart} openImage={openImage} />
             </div>
         </div >
     )

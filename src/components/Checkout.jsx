@@ -32,6 +32,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const customerInfo = { name, email, country, state, postal, card, expiry, cvv };
+        console.log('Customer', customerInfo); // Log customerInfo to the console
         handleCheckout(customerInfo);
     };
 
@@ -125,6 +126,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
                                 <Form.Control
                                     type="text"
                                     value={name}
+                                    placeholder='Enter Full Name'
                                     onChange={(e) => setName(e.target.value)}
                                     required
                                 />
@@ -134,6 +136,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
                                 <Form.Control
                                     type="email"
                                     value={email}
+                                    placeholder='Enter Email'
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
@@ -143,6 +146,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
                                 <Form.Control
                                     type="text"
                                     value={country}
+                                    placeholder='Enter Country Name'
                                     onChange={(e) => setCountry(e.target.value)}
                                     required
                                 />
@@ -154,6 +158,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
                                         <Form.Control
                                             type="text"
                                             value={state}
+                                            placeholder='State'
                                             onChange={(e) => setState(e.target.value)}
                                             required
                                         />
@@ -166,6 +171,7 @@ const Checkout = ({ cartItems = [], handleCheckout }) => {
                                             type="number"
                                             value={postal}
                                             onChange={(e) => setPostal(e.target.value)}
+                                            placeholder='Postal code'
                                             required
                                         />
                                     </Form.Group>
