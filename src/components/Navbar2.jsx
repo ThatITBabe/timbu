@@ -22,7 +22,7 @@ const Navbar2 = ({ cartItems }) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mx-auto navz">
-                            <Nav.Link onClick={handleClick} style={{ color: '#EEF9F1' }}>Home</Nav.Link>
+                            <Nav.Link onClick={handleClick} className='ohm'>Home</Nav.Link>
                             <Nav.Link href="#about-us" className='special'>About Us</Nav.Link>
                             <Nav.Link href="#contact">Contact</Nav.Link>
                             <Nav.Link onClick={handleClick2}>

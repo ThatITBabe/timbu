@@ -1,5 +1,6 @@
 .heroSection {
-    padding-block: 100px;
+    padding-bottom: 100px;
+    /* padding-top: 50px; */
     background: linear-gradient(to right, #254D4D 50%, #EEF9F1 50%);
 }
 
@@ -12,7 +13,7 @@
     font-weight: 700;
     color: #EEF9F1;
     line-height: 72px;
-    font-size: 60px
+    font-size: 60px;
 }
 
 .heroContent {
