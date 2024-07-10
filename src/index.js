@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 // import AppWrapper from './pages/AppWrapper';
 import reportWebVitals from './reportWebVitals';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const cartItems = [];
 const products = [];

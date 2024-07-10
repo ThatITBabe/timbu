@@ -1,0 +1,62 @@
+.footyyy {
+    margin-top: 50px;
+    background-color: #254D4D;
+    padding-block: 50px;
+    font-family: "Montserrat", sans-serif;
+    height: auto;
+}
+
+.lnnnn {
+    height: 169px;
+    display: grid;
+    grid-template-rows: auto auto;
+    max-width: 242px;
+}
+
+.footNav {
+    height: 20px;
+    width: 375px;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.footNav2 {
+    height: 28px;
+    width: 300px;
+    gap: 16px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+
+
+@media screen and (max-width: 428px) {
+    .footyyy {
+        text-align: center;
+    }
+
+    .lnnnn {
+        text-align: center;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footNav {
+        gap: 10px;
+        margin-top: -30px;
+    }
+
+    .footNav2 {
+        margin-top: -60px;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-inline: auto;
+    }
+}

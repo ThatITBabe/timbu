@@ -1,0 +1,57 @@
+.heroSection {
+    padding-block: 100px;
+    background: linear-gradient(to right, #254D4D 50%, #EEF9F1 50%);
+}
+
+
+
+.heroText {
+    max-width: 486px;
+    height: 236px;
+    padding: 10px;
+    font-weight: 700;
+    color: #EEF9F1;
+    line-height: 72px;
+    font-size: 60px
+}
+
+.heroContent {
+    max-width: 486px;
+    height: 136px;
+    padding: 10px;
+    font-weight: 400;
+    color: #EEF9F1;
+    line-height: 29.05px;
+    font-size: 24px
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 428px) {
+    .heroSection {
+        background: #254D4D;
+    }
+
+    .heroText {
+        /* line-height: 58px; */
+        margin-inline: auto;
+        text-align: center;
+        padding: 0;
+    }
+
+    .heroContent {
+        text-align: justify;
+        margin-inline: auto;
+    }
+
+    .btjjj {
+        margin-block: 20px;
+        text-align: center;
+    }
+
+   
+}

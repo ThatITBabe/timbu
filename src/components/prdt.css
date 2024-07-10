@@ -5,13 +5,9 @@
 .product-listing {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-columns: auto auto auto; */
     gap: 20px;
     margin-top: 50px;
 }
-
-/* .product-card{
-} */
 
 .product-card .cardzz {
     width: 100%;
@@ -99,4 +95,11 @@
     font-size: 16px;
     cursor: pointer;
     line-height: 19.5px;
+}
+
+
+@media screen and (max-width: 428px) {
+    .product-listing{
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,11 +1,10 @@
 import React from 'react'
 import './prdt.css'
 
-const ProductCard = ({ product, addToCart, openImage, notification }) => {
+const ProductCard = ({ product, addToCart, openImage }) => {
     return (
         <div className="product-card">
             <div className="cardzz">
-                {notification && <div className="notification">{notification}</div>}
                 <div className="img">
                     <img src={product.image} alt="" />
                 </div>

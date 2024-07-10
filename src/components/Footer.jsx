@@ -2,15 +2,16 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './footer.css'
 
 const Footer = () => {
     return (
-        <div style={{ marginTop: '50px', backgroundColor: '#254D4D', paddingTop: '20px', paddingBottom: '10px', fontFamily: 'font-family: "Montserrat", sans-serif;' }}>
+        <div className='footyyy'>
             <Container>
-                <Row style={{ height: '335px' }}>
-                    <Col style={{ height: '169px', display: 'grid', gridTemplateRows: 'auto, auto', gap: '40px', width: '242px' }}>
+                <Row>
+                    <Col sm={12} lg={4} className='lnnnn'>
                         <div style={{ width: '235px' }}>
-                            <div style={{ fontWeight: '500', fontSize: '24px', lineHeight: '29.26px', color: '#FFFFFF' }}>
+                            <div className='uuuu' style={{ fontWeight: '500', fontSize: '24px', lineHeight: '29.26px', color: '#FFFFFF' }}>
                                 Contact
                             </div>
                             <div style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF' }}>
@@ -26,9 +27,9 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col>
+                    <Col sm={12} lg={4}>
                         <div style={{ height: '265px', width: '375px', gap: '60px', display: 'grid', gridTemplateRows: 'auto auto auto', marginInline: 'auto' }}>
-                            <div style={{display: 'grid',  }}>
+                            <div style={{ display: 'grid', }}>
                                 <div style={{ fontWeight: '400', fontSize: '32px', lineHeight: '38.37px', color: '#FFFFFF', textAlign: 'center', fontFamily: '"Inria Serif", serif' }}>
                                     Elegant Furnitures
                                 </div>
@@ -36,7 +37,8 @@ const Footer = () => {
                                     We speak your personality!
                                 </div>
                             </div>
-                            <div style={{ height: '20px', width: '375px', gap: '40px', display: 'grid', gridTemplateColumns: 'auto auto auto auto', }}>
+
+                            <div className='footNav'>
                                 <div style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', textAlign: 'center', fontFamily: '"Montserrat", sans-serif' }}>
                                     Home
                                 </div>
@@ -50,7 +52,8 @@ const Footer = () => {
                                     Contact Us
                                 </div>
                             </div>
-                            <div style={{ height: '28px', width: '300px', gap: '16px', display: 'grid', gridTemplateColumns: 'auto auto auto auto auto' }}>
+
+                            <div className='footNav2'>
                                 <div>
                                     <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="0.5" width="28" height="28" rx="5" fill="#254D4D" fill-opacity="0.8" />
@@ -91,7 +94,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col>
+                    <Col sm={12} lg={4}>
                         <div style={{ height: '265px', width: '265px', display: 'grid', gridTemplateRows: 'auto auto', gap: '32px', marginInline: 'auto' }}>
                             <div style={{ fontWeight: '500', fontSize: '24px', lineHeight: '29.26px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif', }}>
                                 Our Office
@@ -120,15 +123,19 @@ const Footer = () => {
                         </div>
                     </Col>
                 </Row>
+
+            </Container>
+
+            <Container>
                 <hr />
-                <Row style={{ height: '20px' }}>
-                    <Col style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>
+                <Row gap={5} style={{ height: '20px', bottom: '0px' }}>
+                    <Col sm={12} lg={4} style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>
                         Copyright 2023. All Rights Reserved
                     </Col>
-                    <Col style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>
+                    <Col sm={12} lg={4} style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>
                         Privacy policy
                     </Col>
-                    <Col style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>Terms of service</Col>
+                    <Col sm={12} lg={4} style={{ fontWeight: '400', fontSize: '16px', lineHeight: '19.5px', color: '#FFFFFF', fontFamily: '"Montserrat", sans-serif' }}>Terms of service</Col>
                 </Row>
             </Container>
         </div >

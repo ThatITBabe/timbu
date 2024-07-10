@@ -24,6 +24,10 @@
     /* #333333 */
 }
 
+.gggggggg {
+    color: red;
+}
+
 .form-control {
     outline: none;
 }
@@ -31,7 +35,8 @@
 .input-text {
     font-weight: 400;
     font-size: 16px;
-    color: rgba(79, 79, 79, 0.85);
+    color: red;
+    /* color: rgba(79, 79, 79, 0.85); */
 }
 
 .desff {
@@ -85,6 +90,9 @@
     cursor: pointer;
     font-weight: 400;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .quantity-selector {

@@ -1,9 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Route, Routes, useLocation } from 'react-router-dom';
-// import HomePage from './pages/HomePage';
-// import CartPage from './pages/CartPage';
-// import Navbar2 from './components/Navbar2';
 import prdt1 from './images/prdt1.png';
 import prdt2 from './images/prdt2.png';
 import prdt3 from './images/prdt3.png';
@@ -16,8 +12,6 @@ import prdt9 from './images/prdt9.png';
 import prdt10 from './images/prdt10.png';
 import prdt11 from './images/prdt11.png';
 import prdt12 from './images/prdt12.png';
-// import Footer from './components/Footer';
-// import CheckOutPage from './pages/CheckOutPage';
 // import Successful from './pages/Successful';
 import AppWrapper from './pages/AppWrapper';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -129,17 +123,29 @@ const App = () => {
     const savedCart = localStorage.getItem('cartItems');
     return savedCart ? JSON.parse(savedCart) : [];
   });
-
-  const [notification, setNotification] = useState('');
-
+  
   useEffect(() => {
-    if (notification) {
-      const timer = setTimeout(() => {
-        setNotification('');
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [notification]);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+  
+  const handleCheckout = (customerInfo) => {
+    console.log('Customer Info:', customerInfo);
+    console.log('Cart Items:', cartItems);
+    
+    setCartItems([]);
+    localStorage.removeItem('cartItems');
+    
+    // Use setTimeout to log the cart length after the state has been updated
+    setTimeout(() => {
+      console.log('Cart length after checkout:', cartItems.length);
+    }, 0);
+  
+    alert('Order placed successfully!');
+  };
+  
+  useEffect(() => {
+    console.log('Current cart length:', cartItems.length);
+  }, [cartItems]);
 
   const addToCart = (product) => {
     const existingProduct = cartItems.find((item) => item.id === product.id);
@@ -152,39 +158,10 @@ const App = () => {
             : item
         )
       );
-      setNotification('Item is already in cart, you can increase the quantity.');
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
-      setNotification('Item added to cart.');
     }
   };
-
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  // const addToCart = (product) => {
-  //   const existingProduct = cartItems.find((item) => item.id === product.id);
-
-  //   if (existingProduct) {
-  //     setCartItems(
-  //       cartItems.map((item) =>
-  //         item.id === product.id
-  //           ? { ...item, quantity: item.quantity + 1 }
-  //           : item
-  //       )
-  //     );
-  //     setNotification('Item is already in cart, you can increase the quantity.');
-  //   } else {
-  //     setCartItems([...cartItems, { ...product, quantity: 1 }]);
-  //     setNotification('');
-  //   }
-
-  //   // Clear the notification after a few seconds
-  //   setTimeout(() => {
-  //     setNotification('');
-  //   }, 2000);
-  // };
 
   const openImage = (product) => {
     window.open(product.image, '_blank');
@@ -210,16 +187,6 @@ const App = () => {
       )
     );
   };
-
-  const handleCheckout = (customerInfo) => {
-    console.log('Customer Info:', customerInfo);
-    console.log('Cart Items:', cartItems);
-    setCartItems([]);
-    localStorage.removeItem('cartItems');
-    alert('Order placed successfully!');
-    console.log('Cart length after checkout:', cartItems.length);
-  };
-
 
   return (
     <Router>
