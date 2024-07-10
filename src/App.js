@@ -130,13 +130,61 @@ const App = () => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [notification, setNotification] = useState('');
+
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => {
+        setNotification('');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
+  const addToCart = (product) => {
+    const existingProduct = cartItems.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+      setNotification('Item is already in cart, you can increase the quantity.');
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      setNotification('Item added to cart.');
+    }
+  };
+
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
-    setCartItems([...cartItems, { ...product, quantity: 1 }]);
-  };
+  // const addToCart = (product) => {
+  //   const existingProduct = cartItems.find((item) => item.id === product.id);
+
+  //   if (existingProduct) {
+  //     setCartItems(
+  //       cartItems.map((item) =>
+  //         item.id === product.id
+  //           ? { ...item, quantity: item.quantity + 1 }
+  //           : item
+  //       )
+  //     );
+  //     setNotification('Item is already in cart, you can increase the quantity.');
+  //   } else {
+  //     setCartItems([...cartItems, { ...product, quantity: 1 }]);
+  //     setNotification('');
+  //   }
+
+  //   // Clear the notification after a few seconds
+  //   setTimeout(() => {
+  //     setNotification('');
+  //   }, 2000);
+  // };
 
   const openImage = (product) => {
     window.open(product.image, '_blank');
