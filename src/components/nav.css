@@ -31,8 +31,13 @@
     bottom: 10px;
     left: 40px;
     background-color: #254D4D;
-    padding: 3px 10px;
-    border-radius: 10p;
+    padding: 5px;
+    width: 30px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 5px; */
     color: #EEF9F1;
 }
 

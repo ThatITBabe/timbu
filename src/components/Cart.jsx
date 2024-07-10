@@ -4,9 +4,10 @@ import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
-const Cart = ({ cartItems, increaseQuantity, decreaseQuantity, removeFromCart }) => {
+const Cart = ({ cartItems = [], increaseQuantity, decreaseQuantity, removeFromCart }) => {
 
     const navigate = useNavigate();
 
@@ -148,3 +149,10 @@ const Cart = ({ cartItems, increaseQuantity, decreaseQuantity, removeFromCart })
 }
 
 export default Cart
+
+Cart.propTypes = {
+    cartItems: PropTypes.array,
+    increaseQuantity: PropTypes.func.isRequired,
+    decreaseQuantity: PropTypes.func.isRequired,
+    removeFromCart: PropTypes.func.isRequired
+};

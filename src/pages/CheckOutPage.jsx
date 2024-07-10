@@ -1,11 +1,12 @@
 import React from 'react'
+import { Container } from 'react-bootstrap';
 import Checkout from '../components/Checkout';
 
 const CheckOutPage = ({ cartItems, handleCheckout }) => {
   return (
-    <div>
+    <Container>
       <Checkout cartItems={cartItems} handleCheckout={handleCheckout} />
-    </div>
+    </Container>
   )
 }
 

@@ -10,7 +10,7 @@ const ProductCard = ({ product, addToCart }) => {
                 </div>
                 <div className="content">
                     <div className="top">
-                        <div className="title">{product.title}</div>
+                        <div className="titlet">{product.title}</div>
                         <div className="desc">{product.description}</div>
                         <div className="rating">
                             <svg width="104" height="16" viewBox="0 0 104 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@ const ProductCard = ({ product, addToCart }) => {
                         </div>
                     </div>
                     <div className="price">$ {product.price}</div>
-                    <div className="btnz">
+                    <div className="btnzrr">
                         <div onClick={() => addToCart(product)} className='add'>Add to Cart</div>
                         <div className='view'>View</div>
                     </div>

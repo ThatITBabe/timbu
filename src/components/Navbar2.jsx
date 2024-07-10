@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './nav.css'
 import { useNavigate } from 'react-router-dom';
-import Badge from 'react-bootstrap/Badge';
+// import Badge from 'react-bootstrap/Badge';
 
 
 const Navbar2 = ({ cartItems }) => {

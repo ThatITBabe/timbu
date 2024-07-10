@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import Navbar2 from './components/Navbar2';
@@ -16,19 +16,20 @@ import prdt9 from './images/prdt9.png';
 import prdt10 from './images/prdt10.png';
 import prdt11 from './images/prdt11.png';
 import prdt12 from './images/prdt12.png';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import CheckOutPage from './pages/CheckOutPage';
+import Successful from './pages/Successful';
 
 
 const App = () => {
+  const location = useLocation();
+  const hideNavbarAndFooter = location.pathname === '/payment';
+
   const [products] = useState([
-
-    // { id: 1, name: 'Product 1', description: 'Description 1', price: 10 },
-
     {
       id: 1,
       image: prdt1,
-      title: 'Blue Office  Chair',
+      title: 'Office  Chair',
       description: 'Classy and comfortable ',
       price: 80,
       qty: 1,
@@ -37,7 +38,7 @@ const App = () => {
     {
       id: 2,
       image: prdt2,
-      title: 'Blue Office  Chair',
+      title: 'Office desk and chair set',
       description: 'Classy and comfortable ',
       price: 80,
       qty: 1,
@@ -133,17 +134,6 @@ const App = () => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // const addToCart = (product) => {
-  //   const existingItem = cartItems.find(item => item.id === product.id);
-  //   if (existingItem) {
-  //     setCartItems(cartItems.map(item =>
-  //       item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-  //     ));
-  //   } else {
-  //     setCartItems([...cartItems, { ...product, quantity: 1 }]);
-  //   }
-  // };
-
   const addToCart = (product) => {
     setCartItems([...cartItems, { ...product, quantity: 1 }]);
   };
@@ -153,7 +143,6 @@ const App = () => {
   };
 
   const increaseQuantity = (id) => {
-    console.log(`Increasing quantity for product id: ${id}`);
     setCartItems(prevItems =>
       prevItems.map(item =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -162,7 +151,6 @@ const App = () => {
   };
 
   const decreaseQuantity = (id) => {
-    console.log(`Decreasing quantity for product id: ${id}`);
     setCartItems(prevItems =>
       prevItems.map(item =>
         item.id === id && item.quantity > 1
@@ -179,25 +167,26 @@ const App = () => {
     alert('Order placed successfully!');
   };
 
-
   return (
-    <Router>
-      <div className="App">
-        <Navbar2 cartItems={cartItems} />
-        <Routes>
-          <Route path="/" element={<HomePage products={products} addToCart={addToCart} />} />
-          <Route path="/cart" element={
-            <CartPage
-              cartItems={cartItems}
-              increaseQuantity={increaseQuantity}
-              decreaseQuantity={decreaseQuantity}
-              removeFromCart={removeFromCart}
-            />
-          } />
-          <Route path="/checkout" element={<CheckOutPage cartItems={cartItems} handleCheckout={handleCheckout} />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      {/* <Navbar2 cartItems={cartItems} /> */}
+      {!hideNavbarAndFooter && <Navbar2 cartItems={cartItems} />}
+      <Routes>
+        <Route path="/" element={<HomePage products={products} addToCart={addToCart} />} />
+        <Route path="/cart" element={
+          <CartPage
+            cartItems={cartItems}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
+            removeFromCart={removeFromCart}
+          />
+        } />
+        <Route path="/checkout" element={<CheckOutPage cartItems={cartItems} handleCheckout={handleCheckout} />} />
+        <Route path='/payment' element={<Successful />} />
+      </Routes>
+      {!hideNavbarAndFooter && <Footer />}
+    </div>
+
   );
 };
 
